@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <button class="random">click random times</button>
+    <button class="best-btn">
+      <input type="radio" name="options" class="first" checked />
+      <input type="radio" name="options" class="second" />
+      <input type="radio" name="options" class="third" />
+      <input type="radio" name="options" class="fourth" />
+      <input type="radio" name="options" class="fifth" />
+      <input type="radio" name="options" class="sixth" />
+      <svg viewBox="0 0 64 32">
+        <path
+          class="bg"
+          d="M 0 16 l 16 -16 l 32 32 l 16 -16 l -16 -16 l -32 32 Z"
+          pathLength="80"
+        />
+        <path
+          class="fg"
+          d="M 0 16 l 16 -16 l 32 32 l 16 -16 l -16 -16 l -32 32 Z"
+          pathLength="80"
+        />
+      </svg>
+      <div class="texts">
+        <span class="text first">Widely available</span>
+        <span class="text second">Newly available</span>
+        <span class="text third">Limited availability</span>
+        <span class="text fourth">Maybe available</span>
+        <span class="text fifth">Hardly available</span>
+        <span class="text sixth">None available</span>
+      </div>
+    </button>
+
+    <script>
+      const randomBtn = document.querySelector(".random");
+      let alreadyClick = false;
+      const randomClick = () => {
+        if (alreadyClick) return;
+        alreadyClick = true;
+        const btn = document.querySelector(".best-btn");
+        const times = Math.trunc(Math.random() * 20);
+
+        for (let i = 1; i <= times; i++) {
+          setTimeout(() => {
+            const elToClick = document.elementFromPoint(
+              btn.getBoundingClientRect().x + 10,
+              btn.getBoundingClientRect().y + 10
+            );
+            elToClick.click();
+            if (i === times) alreadyClick = false;
+          }, i * 250);
+        }
+      };
+      // setTimeout(randomClick, 500);
+      randomBtn.addEventListener("click", randomClick);
+    </script>
+  </body>
+</html>
