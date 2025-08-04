@@ -12,12 +12,6 @@ body {
   margin: 0;
 }
 
-button.random {
-  position: fixed;
-  top: 2rem;
-  left: 2rem;
-}
-
 button.best-btn {
   display: flex;
   justify-content: space-between;
