@@ -1,3 +1,7 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 :root {
   --default-dash: 3, 132.5, 0;
   --default-bgdash: 51.5, 10.5, 400;
