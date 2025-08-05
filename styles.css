@@ -77,15 +77,12 @@ input[type="radio"] {
   z-index: 100;
 }
 input[type="radio"]:checked {
-  display: block;
+  display: none;
 }
 input[type="radio"]:checked + input {
   display: block;
 }
 
-button.best-btn:has(input.sixth:checked) input.sixth {
-  display: none;
-}
 button.best-btn:has(input.sixth:checked) input.first {
   display: block;
 }
